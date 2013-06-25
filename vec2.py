@@ -56,7 +56,7 @@ class Vec2:
   def __sub__(self, other):
     return Vec2(self.x - other.x, self.y - other.y) 
 
-  def __mult__(self, other):
+  def __mul__(self, other):
     # If other is a number we simply scale by that
     # value, if it is not a number then we do
     # elementwise multiplication.  If a dot product
