@@ -99,3 +99,8 @@ class Vec2(object):
 
   def round(self):
     return Vec2(int(round(self.x)), int(round(self.y)))
+
+  def rads(self):
+    # convert this vector's direction into
+    # radians around the unit circle from -Pi to Pi
+    return math.atan2(self.y, self.x)

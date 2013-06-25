@@ -105,6 +105,12 @@ class TestVec2(unittest.TestCase):
     vr = v.round()
     self.assertEqual(vr, Vec2(1, 2))
 
+  def test_rads(self):
+    r = self.v1.rads()
+    self.assertEqual(r, math.pi / 4)
+    r = Vec2(-1, 1).rads()
+    self.assertEqual(r, math.pi / 2 + math.pi / 4)
+
   def tearDown(self):
     pass
 
