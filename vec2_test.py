@@ -65,6 +65,46 @@ class TestVec2(unittest.TestCase):
     v = self.v1 * 4
     self.assertEqual(v, Vec2(4, 4))
 
+  def test_rmul(self):
+    # make sure if we multiply a number
+    # by a vector it works out as we would
+    # expect
+    v = 5 * self.v1
+    self.assertEqual(v, Vec2(5, 5))
+
+  def test_neg(self):
+    v = -self.v1
+    self.assertEqual(v, Vec2(-1, -1))
+
+  def test_invert(self):
+    v = ~self.v1
+    self.assertEqual(v, Vec2(-1, -1))
+
+  def test_pos(self):
+    v = +self.v1
+    self.assertEqual(v, Vec2(1, 1))
+
+  def test_div(self):
+    v = self.v1 / self.v2
+    self.assertEqual(v, Vec2(1.0/2.0, 1.0/2.0))
+    v = self.v1 / 3
+    self.assertEqual(v, Vec2(1.0/3, 1.0/3))
+
+  def test_dot(self):
+    n = self.v1.dot(self.v2)
+    self.assertEqual(n, 4)
+
+  def test_pow(self):
+    # test to make sure pow is returning
+    # the dot product
+    n = self.v1 ** self.v2
+    self.assertEqual(n, 4)
+
+  def test_round(self):
+    v = Vec2(1.4, 1.5)
+    vr = v.round()
+    self.assertEqual(vr, Vec2(1, 2))
+
   def tearDown(self):
     pass
 

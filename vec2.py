@@ -65,7 +65,7 @@ class Vec2(object):
       return Vec2(self.x * other, self.y * other)
     return Vec2(self.x * other.x, self.y * other.y)
 
-  def __rmult__(self, other):
+  def __rmul__(self, other):
     return self * other
 
   def __neg__(self):
@@ -83,9 +83,9 @@ class Vec2(object):
 
   def __div__(self, other):
     # Essentially the same as mult except we divide
-    if (other.isinstance(other, numbers.Number)):
-      return Vec2(self.x / other, self.y / other)
-    return Vec2(self.x / other.x, self.y / other.y)
+    if (isinstance(other, numbers.Number)):
+      return Vec2(self.x / float(other), self.y / float(other))
+    return Vec2(float(self.x) / other.x, float(self.y) / other.y)
 
   def dot(self, other):
     return self.x * other.x + self.y * other.y
