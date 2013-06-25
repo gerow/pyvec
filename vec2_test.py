@@ -62,6 +62,8 @@ class TestVec2(unittest.TestCase):
   def test_mul(self):
     v = self.v1 * self.v3
     self.assertEqual(v, Vec2(1, 2))
+    v = self.v1 * 4
+    self.assertEqual(v, Vec2(4, 4))
 
   def tearDown(self):
     pass

@@ -2,7 +2,7 @@ import math
 import collections
 import numbers
 
-class Vec2:
+class Vec2(object):
   def __init__(self, x, y=None):
     if isinstance(x, Vec2):
       self.v = [val for val in x.v]
@@ -61,7 +61,7 @@ class Vec2:
     # value, if it is not a number then we do
     # elementwise multiplication.  If a dot product
     # is required use the dot function
-    if (other.isinstance(other, numbers.Number)):
+    if (isinstance(other, numbers.Number)):
       return Vec2(self.x * other, self.y * other)
     return Vec2(self.x * other.x, self.y * other.y)
 
