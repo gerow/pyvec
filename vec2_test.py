@@ -24,6 +24,8 @@ class TestVec2(unittest.TestCase):
     # should raise a type error if we try to pass
     # an iterable with length != 2
     self.assertRaises(ValueError, Vec2, (1, 2, 3))
+    v = Vec2()
+    self.assertEqual(v, Vec2(0, 0))
 
   def test_public_interfaces(self):
     self.assertEqual(self.v1.x, 1)

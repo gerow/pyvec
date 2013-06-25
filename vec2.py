@@ -3,8 +3,10 @@ import collections
 import numbers
 
 class Vec2(object):
-  def __init__(self, x, y=None):
-    if isinstance(x, Vec2):
+  def __init__(self, x=None, y=None):
+    if x == None:
+      self.v = (0, 0)
+    elif isinstance(x, Vec2):
       self.v = [val for val in x.v]
     elif isinstance(x, collections.Iterable):
       if len(x) != 2:
@@ -39,6 +41,9 @@ class Vec2(object):
     return "pyvec.Vec2(x=%r, y=%r)" % (self.x, self.y)
 
   def __cmp__(self, other):
+    # make sure they're the same type
+    if type(self) != type(other):
+      return -1
     # Just compare the lengths
     if self.length < other.length:
       return -1
