@@ -134,6 +134,11 @@ class TestVec2(unittest.TestCase):
   def test_to(self):
     self.assertEqual(self.v3.to(self.v2), Vec2(1, 0))
 
+  def test_coersion_cmp(self):
+    self.assertLess(self.v1, (2, 2))
+    self.assertGreater(self.v2, (1, 1))
+    self.assertEqual(self.v1, (1, 1))
+
   def tearDown(self):
     pass
 
