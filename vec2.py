@@ -28,6 +28,14 @@ class Vec2(object):
     if name == 'length':
       self.length = math.sqrt(self.x ** 2 + self.y ** 2)
       return self.length
+    if name == 'xy':
+      return Vec2(self)
+    if name == 'xx':
+      return Vec2(self.x, self.x)
+    if name == 'yy':
+      return Vec2(self.y, self.y)
+    if name == 'yx':
+      return Vec2(self.y, self.x)
     # otherwise just raise an attribute error
     raise AttributeError
 

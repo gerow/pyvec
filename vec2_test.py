@@ -113,6 +113,13 @@ class TestVec2(unittest.TestCase):
     r = Vec2(-1, 1).rads()
     self.assertEqual(r, math.pi / 2 + math.pi / 4)
 
+  def test_swizzling(self):
+    v = self.v3
+    self.assertEqual(v.xx, Vec2(1, 1))
+    self.assertEqual(v.yy, Vec2(2, 2))
+    self.assertEqual(v.xy, Vec2(1, 2))
+    self.assertEqual(v.yx, Vec2(2, 1))
+
   def tearDown(self):
     pass
 
