@@ -66,7 +66,6 @@ class Vec2(object):
     return 0
 
   def __coerce__(self, other):
-    print "coerce called with ", self, " and ", other
     if isinstance(other, Vec2):
       return (self, other)
     if isinstance(other, collections.Iterable):
@@ -79,7 +78,6 @@ class Vec2(object):
     yield self.y
 
   def __add__(self, other):
-    print "in __add__ other is ", other
     self, other = coerce(self, other)
     return Vec2(self.x + other.x, self.y + other.y)
 
@@ -143,7 +141,6 @@ class Vec2(object):
     return math.atan2(self.y, self.x)
 
   def to(self, other):
-    print "other is ", other
     self, other = coerce(self, other)
     return other - self
 

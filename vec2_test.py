@@ -139,6 +139,11 @@ class TestVec2(unittest.TestCase):
     self.assertGreater(self.v2, (1, 1))
     self.assertEqual(self.v1, (1, 1))
 
+  def test_binary_op_equals(self):
+    v = Vec2(1, 1)
+    v += (1, 1)
+    self.assertEqual(v, Vec2(2, 2))
+
   def tearDown(self):
     pass
 
