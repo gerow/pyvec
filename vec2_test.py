@@ -144,6 +144,11 @@ class TestVec2(unittest.TestCase):
     v += (1, 1)
     self.assertEqual(v, Vec2(2, 2))
 
+  def test_length_squared(self):
+    v = Vec2(3, 3)
+    l2 = math.sqrt(3 ** 2 + 3 ** 2) ** 2
+    self.assertEqual(v.length2, l2)
+
   def tearDown(self):
     pass
 

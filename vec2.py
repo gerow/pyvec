@@ -28,6 +28,9 @@ class Vec2(object):
     if name == 'length':
       self.length = math.sqrt(self.x ** 2 + self.y ** 2)
       return self.length
+    if name == 'length2':
+      self.length2 = self.length ** 2
+      return self.length2
     if name == 'xy':
       return Vec2(self)
     if name == 'xx':
