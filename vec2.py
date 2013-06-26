@@ -133,3 +133,7 @@ class Vec2(object):
     # convert this vector's direction into
     # radians around the unit circle from -Pi to Pi
     return math.atan2(self.y, self.x)
+
+  def to(self, other):
+    return other - self
+

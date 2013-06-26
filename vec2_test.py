@@ -131,6 +131,9 @@ class TestVec2(unittest.TestCase):
     self.assertEqual(v.dot((2, 2)), 6)
     self.assertEqual(v.dot(2, 2), 6)
 
+  def test_to(self):
+    self.assertEqual(self.v3.to(self.v2), Vec2(1, 0))
+
   def tearDown(self):
     pass
 
