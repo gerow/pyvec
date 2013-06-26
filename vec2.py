@@ -26,10 +26,10 @@ class Vec2(object):
   def __getattr__(self, name):
     # used to lazily evaluate the length
     if name == 'length':
-      self.length = math.sqrt(self.x ** 2 + self.y ** 2)
+      self.length = math.sqrt(self.length2)
       return self.length
     if name == 'length2':
-      self.length2 = self.length ** 2
+      self.length2 = self.x ** 2 + self.y ** 2
       return self.length2
     if name == 'xy':
       return Vec2(self)
