@@ -120,6 +120,17 @@ class TestVec2(unittest.TestCase):
     self.assertEqual(v.xy, Vec2(1, 2))
     self.assertEqual(v.yx, Vec2(2, 1))
 
+  def test_coersion(self):
+    v = Vec2(1, 2)
+    self.assertEqual(v + [2, 2], Vec2(3, 4))
+    self.assertEqual(v + (3, 3), Vec2(4, 5))
+    self.assertEqual(v - [2, 2], Vec2(-1, 0))
+    self.assertEqual(v * (3, 3), Vec2(3, 6))
+    self.assertEqual(v / (2, 2), Vec2(1.0/2, 1))
+    self.assertEqual(v ** (2, 2), 6)
+    self.assertEqual(v.dot((2, 2)), 6)
+    self.assertEqual(v.dot(2, 2), 6)
+
   def tearDown(self):
     pass
 

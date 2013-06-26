@@ -59,14 +59,24 @@ class Vec2(object):
       return 1
     return 0
 
+  def __coerce__(self, other):
+    if isinstance(other, Vec2):
+      return (self, other)
+    if isinstance(other, collections.Iterable):
+      if len(other) == 2:
+        return (self, Vec2(other))
+    return None
+
   def __iter__(self):
     yield self.x
     yield self.y
 
   def __add__(self, other):
+    self, other = coerce(self, other)
     return Vec2(self.x + other.x, self.y + other.y)
 
   def __sub__(self, other):
+    self, other = coerce(self, other)
     return Vec2(self.x - other.x, self.y - other.y) 
 
   def __mul__(self, other):
@@ -76,6 +86,7 @@ class Vec2(object):
     # is required use the dot function
     if (isinstance(other, numbers.Number)):
       return Vec2(self.x * other, self.y * other)
+    self, other = coerce(self, other)
     return Vec2(self.x * other.x, self.y * other.y)
 
   def __rmul__(self, other):
@@ -98,13 +109,18 @@ class Vec2(object):
     # Essentially the same as mult except we divide
     if (isinstance(other, numbers.Number)):
       return Vec2(self.x / float(other), self.y / float(other))
+    self, other = coerce(self, other)
     return Vec2(float(self.x) / other.x, float(self.y) / other.y)
 
-  def dot(self, other):
+  def dot(self, other, y=None):
+    if y:
+      other = (other, y)
+    self, other = coerce(self, other)
     return self.x * other.x + self.y * other.y
 
   def __pow__(self, other):
     # overload the pow operation to do dot product
+    self, other = coerce(self, other)
     return self.dot(other)
 
   def unit(self):
